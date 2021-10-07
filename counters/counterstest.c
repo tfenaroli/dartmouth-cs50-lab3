@@ -14,7 +14,7 @@ counterstest.c
 static void itemcount(void* arg, const int key, const int count) {
   int* nitems = arg;
 
-  if (nitems != NULL && key != NULL && count != NULL) {
+  if (nitems != NULL && key > 0 && count >0) {
     (*nitems)++;
   }
 }
@@ -33,8 +33,7 @@ int main(){
     // testing counters_add with unique keys
     printf("testing counters_add with unique keys\n");
     for (int index = 0; index < 10; index++) {
-      printf("entered\n");
-      printf("key is: %d\n\n", values[index]);
+      printf("added with key: %d\n\n", values[index]);
       counters_add(counters1, values[index]);
     }
 
@@ -55,12 +54,24 @@ int main(){
     }
 
     // confirming add worked
-    printf("Should have different values for keys 4 (51), 6 (11), and 9 (61)\n");
+    printf("Should have different values for keys 4 (51), 6 (11), and 9 (16)\n");
+    counters_print(counters1, stdout);
+
+    // testing counters_add with NULL set
+    printf("testing counters_add with NULL set (shouldn't change set1)\n");
+    counters_add(NULL, 8);
+
+    // confirming add to NULL set didn't work
+    printf("Set should not have different values from adding to a NULL set\n");
     counters_print(counters1, stdout);
 
     // testing counters_get
     printf("testing counters_get with key 6 (should return 11)\n");
     int result = counters_get(counters1, 6);
+    printf("Result is: %d\n\n", result);
+
+    printf("testing counters_get with invalid key 11 (should return 0)\n");
+    result = counters_get(counters1, 11);
     printf("Result is: %d\n\n", result);
 
     // testing counters_set

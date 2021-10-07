@@ -4,6 +4,7 @@ CS50
 counters.c
 */
 
+// inclusions
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,7 +32,6 @@ static countersnode_t* countersnode_new(int key) {
     }
     else {
         node->key = key;
-        node->count = NULL;
         node->next = NULL;
         return node;
     }
@@ -49,7 +49,7 @@ counters_t* counters_new(void) {
     }
 }
 
-// counters_insert (see counters.h for description)
+// counters_add (see counters.h for description)
 int counters_add(counters_t* ctrs, const int key) {
     if (ctrs == NULL || key < 0) {
         return 0;
@@ -64,9 +64,6 @@ int counters_add(counters_t* ctrs, const int key) {
         current = current->next;
     }
 
-    // if counters, key and item are not null
-    // allocate memory for a char
-
     countersnode_t* new = countersnode_new(key);
 
     if (new != NULL) {
@@ -78,7 +75,7 @@ int counters_add(counters_t* ctrs, const int key) {
     return 0;
 }
 
-// counters_find (see counters.h for description)
+// counters_get (see counters.h for description)
 int counters_get(counters_t* ctrs, const int key) {
     if (ctrs == NULL) {
         return 0;
@@ -93,6 +90,7 @@ int counters_get(counters_t* ctrs, const int key) {
     return 0;
 }
 
+// counters_set (see counters.h for description)
 bool counters_set(counters_t* ctrs, const int key, const int count) {
     if (ctrs == NULL || key < 0 || count < 0) {
         return false;
