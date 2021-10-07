@@ -4,6 +4,7 @@ CS50
 set.c
 */
 
+// inclusions
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,7 +26,6 @@ typedef struct set {
 // setnode_new creates setnode
 static setnode_t* setnode_new(char* key, void* item) {
     setnode_t* node = mem_malloc(sizeof(setnode_t));
-    printf("mallocd\n");
 
     if (node == NULL) {
         return NULL;
@@ -41,7 +41,6 @@ static setnode_t* setnode_new(char* key, void* item) {
 // set_new (see set.h for description)
 set_t* set_new(void) {
     set_t* set = mem_malloc(sizeof(set_t));
-    printf("mallocd\n");
     if (set==NULL) {
         return NULL;
     }
@@ -70,7 +69,7 @@ bool set_insert(set_t* set, const char* key, void* item) {
     // if set, key and item are not null
     // allocate memory for a char
     char* key_copy = mem_malloc(strlen(key) + 1);
-    printf("malloc'd\n");
+
     // key_copy = key[0];
     strcpy(key_copy, key);
 
@@ -83,7 +82,6 @@ bool set_insert(set_t* set, const char* key, void* item) {
     }
     return false;
 }
-
 
 // set_find (see set.h for description)
 void* set_find(set_t* set, const char* key) {
@@ -98,6 +96,7 @@ void* set_find(set_t* set, const char* key) {
         }
         current = current->next;
     }
+    printf("got to the return");
     return NULL;
 }
 
@@ -111,8 +110,7 @@ void set_print(set_t* set, FILE* fp, void (*itemprint)(FILE* fp, const char* key
                 if (itemprint != NULL) {
                     (*itemprint)(fp, current->key, current->item);
                     if (current->next != NULL) {
-                        fprintf(fp, ",");
-                        fprintf(fp, " \n");
+                        fprintf(fp, ", \n");
                     }
                 }
                 current = current->next;
