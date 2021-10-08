@@ -28,9 +28,8 @@ set.o: set.h
 test: settest testkeys.txt
 	./settest < testkeys.txt
 
-# expects a file `test.names` to exist; it can contain any text.
 valgrind: settest
-	$(VALGRIND) ./settest
+	$(VALGRIND) ./settest < testkeys.txt
 
 clean:
 	rm -rf *.dSYM  # MacOS debugger info

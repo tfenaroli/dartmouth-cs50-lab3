@@ -28,7 +28,6 @@ hashtable.o: hashtable.h
 test: hashtabletest testkeys.txt
 	./hashtabletest < testkeys.txt
 
-# expects a file `test.names` to exist; it can contain any text.
 valgrind: hashtabletest
 	$(VALGRIND) ./hashtabletest < testkeys.txt
 
