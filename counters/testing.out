@@ -1,0 +1,85 @@
+./counterstest
+starting testing!
+
+made new counter
+testing counters_add with unique keys
+added with key: 1
+
+added with key: 2
+
+added with key: 3
+
+added with key: 4
+
+added with key: 5
+
+added with key: 6
+
+added with key: 7
+
+added with key: 8
+
+added with key: 9
+
+added with key: 10
+
+testing counters_print
+{(10, 1), 
+(9, 1), 
+(8, 1), 
+(7, 1), 
+(6, 1), 
+(5, 1), 
+(4, 1), 
+(3, 1), 
+(2, 1), 
+(1, 1)}
+
+testing counters_add with existing keys
+Should have different values for keys 4 (51), 6 (11), and 9 (16)
+{(10, 1), 
+(9, 16), 
+(8, 1), 
+(7, 1), 
+(6, 11), 
+(5, 1), 
+(4, 51), 
+(3, 1), 
+(2, 1), 
+(1, 1)}
+
+testing counters_add with NULL set (shouldn't change set1)
+Set should not have different values from adding to a NULL set
+{(10, 1), 
+(9, 16), 
+(8, 1), 
+(7, 1), 
+(6, 11), 
+(5, 1), 
+(4, 51), 
+(3, 1), 
+(2, 1), 
+(1, 1)}
+
+testing counters_get with key 6 (should return 11)
+Result is: 11
+
+testing counters_get with invalid key 11 (should return 0)
+Result is: 0
+
+testing counters_set (setting key 3 to count 348, key 2 to count 45, and key 6 to count 1)
+{(10, 1), 
+(9, 16), 
+(8, 1), 
+(7, 1), 
+(6, 1), 
+(5, 1), 
+(4, 51), 
+(3, 348), 
+(2, 45), 
+(1, 1)}
+
+testing counters_iterate by counting how many counters there are
+counterscount (should be 10) is: 10
+
+testing counters_delete

@@ -1,4 +1,69 @@
-gcc -Wall -pedantic -std=c11 -ggdb  -I../lib   -c -o settest.o settest.c
-gcc -Wall -pedantic -std=c11 -ggdb  -I../lib settest.o set.o ../lib/file.o ../lib/mem.o  -o settest
-./settest
-Makefile:29: recipe for target 'test' failed
+./settest < testkeys.txt
+starting testing!
+testing inserts
+inserted line: test1
+inserted int: 1
+
+inserted line: test2
+inserted int: 2
+
+inserted line: test3
+inserted int: 3
+
+inserted line: test4
+inserted int: 4
+
+inserted line: test5
+inserted int: 5
+
+inserted line: test6
+inserted int: 6
+
+inserted line: test7
+inserted int: 7
+
+inserted line: test8
+inserted int: 8
+
+inserted line: test9
+inserted int: 9
+
+inserted line: test10
+inserted int: 10
+
+testing set_print
+{(test10, 10), 
+(test9, 9), 
+(test8, 8), 
+(test7, 7), 
+(test6, 6), 
+(test5, 5), 
+(test4, 4), 
+(test3, 3), 
+(test2, 2), 
+(test1, 1)}
+
+testing faulty inserts (NULL set, NULL item, NULL key)
+The set shouldn't have changed because of faulty inserts
+{(test10, 10), 
+(test9, 9), 
+(test8, 8), 
+(test7, 7), 
+(test6, 6), 
+(test5, 5), 
+(test4, 4), 
+(test3, 3), 
+(test2, 2), 
+(test1, 1)}
+
+testing set_find with valid key
+set_find test result using test key test4 (should be 4) is: 4
+
+testing set_find with invalid key
+set_find test result using test key test11 (should be NULL) is: (null)
+
+testing set_iteratesetcount (should be 10) is: 10
+
+testing set_iterate with NULL inputs (nothing should happen)
+
+testing set_delete

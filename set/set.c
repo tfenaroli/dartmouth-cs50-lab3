@@ -96,7 +96,6 @@ void* set_find(set_t* set, const char* key) {
         }
         current = current->next;
     }
-    printf("got to the return");
     return NULL;
 }
 

@@ -1,0 +1,112 @@
+./hashtabletest < testkeys.txt
+starting testing!
+
+made table successfully
+
+testing inserts
+inserted line: test1
+inserted int: 1
+
+inserted line: test2
+inserted int: 2
+
+inserted line: test3
+inserted int: 3
+
+inserted line: test4
+inserted int: 4
+
+inserted line: test5
+inserted int: 5
+
+inserted line: test6
+inserted int: 6
+
+inserted line: test7
+inserted int: 7
+
+inserted line: test8
+inserted int: 8
+
+inserted line: test9
+inserted int: 9
+
+inserted line: test10
+inserted int: 10
+
+testing hashtable_print
+{(test7, 7), 
+(test3, 3)}
+
+
+{}
+
+
+{(test9, 9), 
+(test8, 8)}
+
+
+{(test10, 10), 
+(test2, 2)}
+
+
+{(test6, 6), 
+(test5, 5), 
+(test4, 4), 
+(test1, 1)}
+
+
+testing hashtable_print
+{key test7, 
+key test3}
+
+{}
+
+{key test9, 
+key test8}
+
+{key test10, 
+key test2}
+
+{key test6, 
+key test5, 
+key test4, 
+key test1}
+
+
+testing faulty inserts (NULL hashtable, NULL item, NULL key)
+The hashtable shouldn't have changed because of faulty inserts
+
+{(test7, 7), 
+(test3, 3)}
+
+
+{}
+
+
+{(test9, 9), 
+(test8, 8)}
+
+
+{(test10, 10), 
+(test2, 2)}
+
+
+{(test6, 6), 
+(test5, 5), 
+(test4, 4), 
+(test1, 1)}
+
+
+testing hashtable_find with valid key
+hashtable_find test result using test key test8 (should be 8) is: 8
+
+testing hashtable_find with invalid key
+hashtable_find test result using test key test11 (should be NULL) is: (null)
+
+testing hashtable_iterate
+hashtablecount (should be 10) is: 10
+
+testing hashtable_iterate with NULL inputs (nothing should happen)
+
+testing hashtable_delete

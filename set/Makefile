@@ -25,7 +25,7 @@ set.o: set.h
 .PHONY: test valgrind clean
 
 # expects a file `testkeys.txt` to exist; it can contain any text.
-test: settest
+test: settest testkeys.txt
 	./settest < testkeys.txt
 
 # expects a file `test.names` to exist; it can contain any text.
