@@ -1,4 +1,4 @@
-/* 
+ /* 
 Thomas Fenaroli
 CS50
 hashtable.c
@@ -58,6 +58,9 @@ bool hashtable_insert(hashtable_t* ht, const char* key, void* item) {
 
 // hashtable_find (see hashtable.h for description)
 void* hashtable_find(hashtable_t* ht, const char* key) {
+  if (ht == NULL || key == NULL){
+    return NULL;
+  }
   int index = hash_jenkins(key, ht->num_slots);
   return set_find(ht->set_array[index], key);
 }
